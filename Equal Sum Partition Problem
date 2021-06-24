@@ -1,0 +1,26 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <unordered_map>
+#include <math.h>
+#include <iomanip>
+#include <map>
+#include <set>
+using namespace std;
+ 
+bool subset(int arr[ ],int n,int sum1,int sum2){
+    if(n==0){
+        if(sum1==sum2) return 1;
+        else return 0;
+        }
+        return (subset(arr,n-1,sum1,sum2+arr[n]) || subset(arr,n-1,sum1+arr[n],sum2));
+    }
+int main(){
+    int n,sum1=0,sum2=0;
+    cin>>n;
+    int arr[n+1];
+    for(int i = 1;i<=n;i++) cin>>arr[i];
+    int ele=subset(arr,n,sum1,sum2);
+    if(ele==1) cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
+    }
