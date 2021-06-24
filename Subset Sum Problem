@@ -1,0 +1,37 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <unordered_map>
+#include <math.h>
+#include <iomanip>
+#include <map>
+#include <set>
+using namespace std;
+ 
+int subset(int set[ ],int n,int sum){
+    //Base Condition
+    
+    if(n == 0) return 0;
+    //If this condition comes , that means there was a subset in the array which makes sum equal to 'sum'
+    
+    if(sum == 0) return 1;
+    //if any element is greater than the sum , then it should not be included in the required subset array
+    
+    if(set[n]>sum) return subset(set,n-1,sum);
+    else{
+        return subset(set,n-1,sum-set[n]) || subset(set,n-1,sum);
+        }
+    } 
+int main(){
+    //n-Number of Elements
+    //sum-required sum
+    int n,sum;
+    cin>>n>>sum;
+    int set[n+1];
+    for(int i = 1;i<=n;i++) cin>>set[i];
+    int ans = subset(set,n,sum);
+    if(ans == 1) cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
+    
+    return 0;
+    }
