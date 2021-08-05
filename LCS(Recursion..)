@@ -1,0 +1,29 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+
+using namespace std;
+
+const int sizes = 100;
+int arr[sizes][sizes];
+int solve(string a , string b,int len1,int len2){
+    if(len1 == a.length()) return 0;
+    if(len2 == b.length()) return 0;
+    if(arr[len1][len2]!=-1) return arr[len1][len2];
+    
+    if(a[len1] == b[len2]) return arr[len1][len2] = 1+solve(a,b,len1+1,len2+1);
+    else{
+        return arr[len1][len2] = max(solve(a,b,len1+1,len2),solve(a,b,len1,len2+1));
+        }
+    }
+int main(){
+    string a,b;
+    cin>>a>>b;
+    for(int i = 0;i<100;i++){
+        for(int j = 0;j<100;j++) arr[i][j] = -1;
+        }
+    int ans = solve(a,b,0,0);
+    cout<<ans<<endl;
+    
+    return 0;
+    }
