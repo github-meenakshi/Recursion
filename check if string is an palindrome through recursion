@@ -1,0 +1,28 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+bool palindrome(string s,int start,int last){
+    if(start>=last) return true;
+    if(s[start] != s[last]) return false;
+    if(!palindrome(s,start+1,last-1)) return false;
+    
+    return true;
+    }
+ 
+void solve(){
+    // check if a string is palindrome
+    string s;
+    cin>>s;
+    bool ans = palindrome(s,0,s.length()-1);
+    if(ans) cout<<"true"<<endl;
+    else cout<<"false"<<endl;
+    
+    return;
+    }
+int main(){
+    solve();
+    return 0;
+    }
