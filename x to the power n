@@ -1,0 +1,24 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+int power(int a,int b){
+    if(b == 1) return a;
+    else if(b == 0) return 1;
+    
+    int curr = power(a,b/2);
+    if(b%2 == 0) return curr*curr;
+    else return curr*curr*a;
+    }
+void solve(){
+    int a,b;
+    cin>>a>>b;
+    
+    cout<<power(a,b)<<endl;
+    return;
+    }
+int main(){
+    solve();
+    return 0;
+    }
