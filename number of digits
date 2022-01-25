@@ -1,0 +1,23 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+int digits(int num){
+    if(num == 0) return 0;
+    
+    return digits(num/10)+1;
+    }
+void solve(){
+    // number of digits
+    int num;
+    cin>>num;
+    
+    cout<<digits(num)<<endl;
+    return;
+    }
+int main(){
+    solve();
+    return 0;
+    }
