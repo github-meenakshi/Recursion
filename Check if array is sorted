@@ -1,0 +1,31 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+bool check(vector<int> vec,int indii){
+    if(indii == vec.size()-1) return true;
+    if(vec[indii]>vec[indii+1]) return false;
+    if(!check(vec,indii+1)) return false;
+    return true;
+    }
+    
+void solve(){
+    //check if array is sorted
+    int n; //size
+    cin>>n;
+    vector<int> vec(n);
+    for(int i = 0;i<n;i++){
+        cin>>vec[i];
+        }
+        bool ans = check(vec,0);
+        if(ans) cout<<"Sorted"<<endl;
+        else cout<<"Not Sorted"<<endl;
+        
+        return;
+    }
+int main(){
+    solve();
+    return 0;
+    }
