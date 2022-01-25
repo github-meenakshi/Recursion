@@ -1,0 +1,22 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+int multi(int m,int n){
+    if(n == 0 || n == 1) return m;
+    int curr = multi(m,n/2);
+    if(n%2 == 0) return curr+curr;
+    else return curr+curr+m;
+    }    
+void solve(){
+    int m,n;
+    cin>>m>>n;
+    
+    cout<<multi(m,n)<<endl;
+    }
+int main(){
+    solve();
+    return 0;
+    }
