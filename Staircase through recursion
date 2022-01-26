@@ -1,0 +1,23 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+int steps(int n,int count){
+    if(count==n) return 1;
+    if(count>n) return 0;
+    return steps(n,count+1)+steps(n,count+2)+steps(n,count+3);
+    }
+void solve(){
+    int n;
+    cin>>n;
+    int ans = steps(n,0);
+    cout<<ans<<endl;
+    
+    return;
+    }
+int main(){
+    solve();
+    return 0;
+    }
