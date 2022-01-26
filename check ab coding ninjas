@@ -1,0 +1,32 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+bool check(string s,int size,int count){
+    if(count >= size+1) return true;
+    if(s[count] == 'b'){
+        if(count == size || count == 0) return false;
+        else if(s[count+1] == 'b'){
+            if(size>=count+2 && s[count+2] == 'b') return false;
+            else if(!check(s,size,count+2)) return false;
+            }
+            else return false;
+        }
+        else if(!check(s,size,count+1)) return false;
+        return true;
+    }
+    //abababa
+    //abb
+void solve(){
+    string s;
+    cin>>s;
+    bool ans = check(s,s.length()-1,0);
+    if(ans) cout<<"Tiruu"<<endl;
+    else cout<<"False"<<endl;
+    }
+int main(){
+    solve();
+    return 0;
+    }
