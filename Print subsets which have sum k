@@ -1,0 +1,41 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+vector<vector<int> > vec;
+void subsets(vector<int> nums,vector<int> subset,int req_sum,int count,int sum){
+    if(count == nums.size()) return;
+    if(sum == req_sum) vec.push_back(subset);
+    //nums[i] is not included in the subset
+    subsets(nums,subset,req_sum,count+1,sum);
+        subset.push_back(nums[count]);
+        subsets(nums,subset,req_sum,count+1,sum+nums[count]);
+    }
+void solve(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    
+    for(int i = 0;i<n;i++){
+        cin>>arr[i];
+        }
+        vector<int> empty;
+        cout<<"Enter the required sum"<<endl;
+        int req_sum;
+        cin>>req_sum;
+        subsets(arr,empty,req_sum,0,0);
+        
+         for(int i = 0;i<vec.size();i++){
+             for(int j = 0;j<vec[i].size();j++){
+                 cout<<vec[i][j]<<" ";
+                 }
+                 cout<<endl;
+             }    
+            return;
+    }
+int main(){
+    solve();
+    return 0;
+    }
