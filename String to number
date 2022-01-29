@@ -1,0 +1,28 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <math.h>
+
+using namespace std;
+
+int convert(string s,int len){
+    if(s.length() == 1) return (s[0]-'0');
+    int num = s[0]-'0';
+    int prev_num = convert(s.substr(1),len-1);
+    num = num*pow(10,len)+prev_num;
+    return num;
+    }
+    
+void solve(){
+    //string to number
+    string s;
+    cin>>s;
+    int len = s.length();
+    int num = convert(s,len-1);
+    cout<<num<<endl;
+    }
+    //xpix
+int main(){
+    solve();
+    return 0;
+    }
