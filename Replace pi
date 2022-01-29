@@ -1,0 +1,33 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+string replace_pi(string s){
+    if(s.length()<2) return s;
+    string curr_s = s[0]+replace_pi(s.substr(1)),second_s;
+//    cout<<curr_s<<endl;
+    if(curr_s[0] == 'p' && curr_s[1] == 'i'){
+        second_s = "3.14";
+        for(int i = 2;i<curr_s.length();i++){
+            second_s = second_s+curr_s[i];
+            }
+        }
+        else second_s = curr_s;
+    
+        return second_s;
+    }    
+void solve(){
+    string s;
+    cin>>s;
+    string ans = replace_pi(s);
+    cout<<ans<<endl;
+    
+    return;
+    }
+    //xpix
+int main(){
+    solve();
+    return 0;
+    }
