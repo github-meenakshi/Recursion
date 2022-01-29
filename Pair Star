@@ -1,0 +1,34 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <math.h>
+
+using namespace std;
+
+string pairs(string s){
+        if(s.length()<2) return s;
+        string curr_s = s[0]+pairs(s.substr(1)),second_s;
+        if(curr_s[0] == curr_s[1]){
+        second_s = second_s+curr_s[0]+'*';
+        for(int i = 1;i<curr_s.length();i++){
+            second_s = second_s+curr_s[i];
+            }
+        }
+        else second_s = curr_s;
+        
+        return second_s;
+    }
+    
+void solve(){
+    //Pair Star
+    string s;
+    cin>>s;
+    string ans = pairs(s);
+    cout<<ans<<endl;
+    return;
+    }
+    //xpix
+int main(){
+    solve();
+    return 0;
+    }
