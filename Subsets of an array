@@ -1,0 +1,43 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <math.h>
+
+using namespace std;
+
+vector<vector<int> > ans;
+
+//approach is a element can be added once and not added once.
+void subsets(vector<int> vec,int count,vector<int> empty){
+    if(count == vec.size()){
+    ans.push_back(empty);
+    return;
+    }
+    empty.push_back(vec[count]);
+    subsets(vec,count+1,empty);
+    empty.pop_back(); //this step is backtracking, we included the curr element and then removed it 
+    subsets(vec,count+1,empty);
+    }    
+void solve(){
+    int n;
+    cin>>n;
+    vector<int> vec(n);
+    for(int i = 0;i<n;i++){
+        cin>>vec[i];
+        }
+        vector<int> empty;
+        subsets(vec,0,empty);
+        
+        for(int i = 0;i<ans.size();i++){
+            for(int j = 0;j<ans[i].size();j++){
+                cout<<ans[i][j]<<" ";
+                }
+                cout<<endl;
+            }
+            return;
+    }
+    //xpix
+int main(){
+    solve();
+    return 0;
+    }
